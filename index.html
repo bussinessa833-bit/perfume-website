@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIRÉ - Luxury Perfume Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <i class="fas fa-flask-vial"></i>
+                <span>NOIRÉ</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#shop" class="nav-link">Shop</a>
+                <a href="#collections" class="nav-link">Collections</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="navbar-icons">
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search perfumes...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <a href="#cart" class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Shopping Cart</h2>
+                <button class="close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span id="shipping">$10.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">$10.00</span>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">ELEVATE YOUR ESSENCE</h1>
+            <p class="hero-subtitle">Discover fragrances crafted for those who leave an impression.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('shop').scrollIntoView({behavior: 'smooth'})">SHOP COLLECTION</button>
+                <button class="btn btn-secondary">EXPLORE FRAGRANCES</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="perfume-bottle"></div>
+        </div>
+    </section>
+
+    <!-- Featured Perfumes Section -->
+    <section class="featured" id="featured">
+        <div class="container">
+            <div class="section-header">
+                <h2>FEATURED COLLECTION</h2>
+                <p>Our most coveted fragrances</p>
+            </div>
+
+            <div class="products-grid" id="featuredProducts">
+                <!-- Products will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Collection Showcase -->
+    <section class="luxury-collection" id="collections">
+        <div class="luxury-content">
+            <div class="luxury-text">
+                <h2>THE LUXURY COLLECTION</h2>
+                <p>Crafted with the finest ingredients from around the world, each fragrance in our premium collection tells a story of elegance and sophistication.</p>
+                <button class="btn btn-primary">DISCOVER THE COLLECTION</button>
+            </div>
+            <div class="luxury-image">
+                <div class="luxury-bottle"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>ABOUT NOIRÉ</h2>
+                <p>Our Philosophy</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-quote">"A fragrance is more than a scent. It is an identity, a memory, and an unforgettable impression."</p>
+                    <p>Founded with a vision to create fragrances that transcend the ordinary, NOIRÉ represents the pinnacle of luxury perfumery. Every bottle is meticulously crafted to encapsulate elegance, sophistication, and timeless beauty.</p>
+                    <p>We believe that the perfect fragrance should elevate your presence and leave a lasting impression on everyone you meet. Our collection is designed for those who refuse to compromise on quality and style.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>15+</h3>
+                        <p>Premium Collections</p>
+                    </div>
+                    <div class="stat">
+                        <h3>50K+</h3>
+                        <p>Satisfied Customers</p>
+                    </div>
+                    <div class="stat">
+                        <h3>100%</h3>
+                        <p>Authentic Ingredients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section class="shop" id="shop">
+        <div class="container">
+            <div class="section-header">
+                <h2>COMPLETE COLLECTION</h2>
+                <p>Explore all fragrances</p>
+            </div>
+
+            <div class="shop-controls">
+                <div class="filter-group">
+                    <label>Category:</label>
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="Men">Men</option>
+                        <option value="Women">Women</option>
+                        <option value="Unisex">Unisex</option>
+                        <option value="Oud">Oud</option>
+                        <option value="Floral">Floral</option>
+                        <option value="Woody">Woody</option>
+                        <option value="Luxury">Luxury Collection</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Price Range:</label>
+                    <select id="priceFilter">
+                        <option value="">All Prices</option>
+                        <option value="0-100">$0 - $100</option>
+                        <option value="100-150">$100 - $150</option>
+                        <option value="150+">$150+</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Sort By:</label>
+                    <select id="sortFilter">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="products-grid" id="shopProducts">
+                <!-- Products will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>CUSTOMER REVIEWS</h2>
+                <p>What our clients are saying</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"NOIRÉ fragrances are exceptional. The quality is unmatched, and every bottle feels like a luxury investment. I've received countless compliments!"</p>
+                    <p class="reviewer-name">— Alexandra Sterling</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The Noir Élégance is my signature scent. It's sophisticated, long-lasting, and absolutely divine. I couldn't ask for better."</p>
+                    <p class="reviewer-name">— Marcus Chen</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Impeccable customer service and stunning packaging. Every interaction with NOIRÉ feels premium. Highly recommended for fragrance enthusiasts!"</p>
+                    <p class="reviewer-name">— Victoria Laurent</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Royal Amber has become my go-to fragrance for special occasions. The complexity and depth are remarkable. Worth every penny!"</p>
+                    <p class="reviewer-name">— James Wellington</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>GET IN TOUCH</h2>
+                <p>We'd love to hear from you</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>123 Luxury Avenue, Paris, France</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+33 1 23 45 67 89</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>hello@noire-luxury.com</p>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NOIRÉ</h3>
+                    <p>Luxury fragrances for the discerning individual.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>CUSTOMER CARE</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NOIRÉ Luxury Perfumes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
